@@ -777,3 +777,147 @@ button:not(:disabled),
     z-index: 10;
   }
 }
+
+.footerContainer {
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footerContainer-links {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+}
+.footerContainer-links-wrapper {
+  display: flex;
+}
+.footerContainer-links-wrapper-item h2 {
+  margin-bottom: 16px;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.footerContainer-links-wrapper-item a {
+  color: black;
+  text-decoration: none;
+  margin-bottom: 0.3rem;
+  transition: 0.3s ease-out;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.footerContainer-links-wrapper-item a:hover {
+  transition: 0.3 ease-out;
+}
+.footerContainer-links-wrapper-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 16px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+#footer__logo {
+  color: black;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.socialMedia {
+  max-width: 10000px;
+  width: 100%;
+}
+.socialMedia-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 10000px;
+  margin: 40px auto 0 auto;
+}
+.socialMedia-wrap-rights {
+  color: black;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 240px;
+}
+
+.icon-facebook {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-facebook img {
+  width: 30px;
+}
+.icon-instagram {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-instagram img {
+  width: 30px;
+}
+.icon-youtube {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-youtube img {
+  width: 30px;
+}
+.icon-linkedin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-linkedin img {
+  width: 30px;
+}
+.icon-tiktok {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-tiktok img {
+  width: 30px;
+}
+.icon-whatsapp {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-whatsapp img {
+  width: 30px;
+}

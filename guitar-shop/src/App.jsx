@@ -1,8 +1,11 @@
+import Header from "./components/Header"
+
 function App() {
 
   return (
-    <>
-      
+    <>  
+
+    <Header />
     <header class="py-5 header">
         <div class="container-xl">
             <div class="row justify-content-center justify-content-md-between">
@@ -257,11 +260,59 @@ function App() {
 
 
     <footer class="bg-dark mt-5 py-5">
-        <div class="container-xl">
-            <p class="text-white text-center fs-4 mt-4 m-md-0">GuitarLA - Todos los derechos Reservados</p>
+      <div class="footerContainer">
+        <div class="footerContainer-links">
+          <div class="footerContainer-links-wrapper">
+              <div class="footerContainer-links-wrapper-item">
+                <h2>Sobre Nosotros</h2>
+                <a href="/sign__up">Cómo funciona</a>
+                <a href="/">Testimonios</a>
+                <a href="/">Carreras</a>
+                <a href="/">Términos del servicio</a>
+              </div>  
+              <div class="footerContainer-links-wrapper-item">
+                <h2>Contáctanos</h2>
+                <a href="/">Contacto</a>
+                <a href="/">Soporte</a>
+                <a href="/">Destinos</a>
+              </div>
+            </div>
+          <div class="footerContainer-links-wrapper">
+              <div class="footerContainer-links-wrapper-item">
+                <h2>Videos</h2>
+                <a href="/">Enviar video</a>
+                <a href="/">Embajadores</a>
+                <a href="/">Agencia</a>
+              </div>
+            
+              <div class="footerContainer-links-wrapper-item">
+                <h2>Redes Sociales</h2>
+                <a href="/">Instagram</a>
+                <a href="/">Facebook</a>
+                <a href="/">YouTube</a>
+                <a href="/">Twitter</a>
+              </div>              
+          </div>
         </div>
-    </footer>
+        <section class="socialMedia">
+          <div class="socialMedia-wrap">
+            <div class="socialMedia-wrap-logo">
+              <a href="/" id="footer__logo">Guitar Shop</a>
+            </div>
+            <p class="socialMedia-wrap-rights">© Guitar Shop 2025. All rights reserved</p>
+            <div class="socialIcons">
+              <a href="/" class="icon-facebook" target="_blank"><img src="img/facebook.png"></img></a>
+              <a href="/" class="icon-instagram" target="_blank"><img src="img/instagram.png"></img></a>
+              <a href="/" class="icon-youtube" target="_blank"><img src="img/youtube.png"></img></a>
+              <a href="/" class="icon-linkedin" target="_blank"><img src="img/linkedin.png"></img></a>
+              <a href="/" class="icon-tiktok" target="_blank"><img src="img/tik-tok.png"></img></a>
+              <a href="/" class="icon-whatsapp" target="_blank"><img src="img/whatsapp.png"></img></a>
+            </div>
+          </div>
+        </section>
+      </div>
 
+    </footer>
     </>
   )
 }
