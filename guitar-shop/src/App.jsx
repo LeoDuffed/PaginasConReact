@@ -313,6 +313,7 @@ function App() {
       </div>
 
     </footer>
+    
     </>
   )
 }
