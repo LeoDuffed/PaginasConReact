@@ -61,5 +61,27 @@ export const db = [
     image: 'guitarra_09',
     description: 'Morbi ornare augue nisl, vel elementum dui mollis vel. Curabitur non ex id',
     price: 379,
+  },
+  {
+    id: 10,
+    name: 'Page',
+    image: 'guitarra_10',
+    description: 'Morbi ornare augue nisl, vel elementum dui mollis vel. Curabitur non ex id',
+    price: 389,
+  },
+  {
+    id: 11,
+    name: 'Clapton',
+    image: 'guitarra_11',
+    description: 'Morbi ornare augue nisl, vel elementum dui mollis vel. Curabitur non ex id',
+    price: 359,
+  },
+  {
+    id: 12,
+    name: 'Gilmour',
+    image: 'guitarra_12',
+    description: 'Morbi ornare augue nisl, vel elementum dui mollis vel. Curabitur non ex id',
+    price: 409,
   }
+
 ];
