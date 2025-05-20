@@ -8,7 +8,7 @@ function App() {
 
   const [data, setData] = useState(db)
 
-  return (
+  return (  
     <>  
 
     <Header />
@@ -19,8 +19,10 @@ function App() {
 
         <div className="row mt-5">
 
-          {data.map (() => (
-            <Guitar/> 
+          {data.map ((guitar) => (
+            <Guitar
+            guitar={guitar}
+            /> 
           ))}
 
         </div>
