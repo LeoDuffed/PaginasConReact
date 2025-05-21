@@ -25,7 +25,9 @@ function App() {
   return (  
     <>  
 
-    <Header />
+    <Header
+      cart={cart}
+    />
 
     <main className="container-xl mt-5">
 
