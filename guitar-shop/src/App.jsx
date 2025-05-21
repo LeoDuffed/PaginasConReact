@@ -11,9 +11,14 @@ function App() {
 
   function addToCart(item){
     const itemExist = cart.findIndex((guitar) => guitar.id === item.id)
-    console.log(itemExist)
-
-    setCart(prevCart => [...prevCart, item])
+    if(itemExist >= 0){ // Si ya exsite va sumando a la cantidad
+      const updateCart = [...cart]
+      updateCart[itemExist].quantity++
+      setCart(updateCart)
+    } else{ // Si no existe la cantidad es 1.
+      item.quantity = 1
+      setCart([...cart, item])
+    }
   }
 
   return (  
@@ -28,7 +33,7 @@ function App() {
         <div className="row mt-5">
 
           {data.map ((guitar) => (
-            <Guitar
+            <Guitar // Todo lo que le estamos mandando al guitar
               key={guitar.id}
               guitar={guitar}
               setCart={setCart}
