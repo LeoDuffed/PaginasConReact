@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export default function Guitar({guitar, addToCart}){
 
     const {id, name, image, description, price} = guitar
