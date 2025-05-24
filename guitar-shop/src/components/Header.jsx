@@ -4,7 +4,7 @@ import Guitar from "./Guitar";
 import { useMemo } from "react";
 
 //import React from "react"
-export default function Header({cart}){
+export default function Header({cart, removeFromCart, increaseQuantity, decreaseQuantity}){
     
     /* Documentacion useMemo:
     useMemo is a React Hook that optimizes performance 
@@ -37,7 +37,7 @@ export default function Header({cart}){
         /* Otra manera en vez de return():
         inicio: <React.Fragment>
         final: </React.Fragment>
-        o 
+                o 
         inicio: <>
         final: </>
         */
@@ -77,9 +77,8 @@ export default function Header({cart}){
                                             <tbody>
                                                 
                                                 {cart.map(guitar => ( 
-                                                    // Estamos iterando sobre cart  con map//
-
-                                                    /* Documentacion .map
+                                                    // Estamos iterando sobre cart con map//
+                                                    /* Documentacion .map()
                                                     In React, the .map() method is used to iterate over 
                                                     an array and transform each element into something else, 
                                                     often JSX elements, which are then rendered in the UI. 
@@ -101,6 +100,7 @@ export default function Header({cart}){
                                                             <button
                                                                 type="button"
                                                                 className="btn btn-dark"
+                                                                onClick={() => decreaseQuantity(guitar.id)} // Call back
                                                             >
                                                                 -
                                                             </button>
@@ -108,6 +108,7 @@ export default function Header({cart}){
                                                             <button
                                                                 type="button"
                                                                 className="btn btn-dark"
+                                                                onClick={() => increaseQuantity(guitar.id)} // Call back
                                                             >
                                                                 +
                                                             </button>
@@ -116,6 +117,7 @@ export default function Header({cart}){
                                                             <button
                                                                 className="btn btn-danger"
                                                                 type="button"
+                                                                onClick={() => removeFromCart(guitar.id)} // Call back
                                                             >
                                                                 X
                                                             </button>

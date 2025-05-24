@@ -32,8 +32,41 @@ function App() {
     }
   }
 
-  function removeFromCart(item){
-    
+  function removeFromCart(id){
+    /* Documentacion .filter
+    es un método iterativo que permite crear 
+    una nueva matriz a partir de una matriz 
+    existente, seleccionando únicamente los 
+    elementos que cumplen una condición específica 
+    definida por una función de callback. 
+    */
+    setCart(prevCart => prevCart.filter(guitar => guitar.id !== id)) // Mantiene todos lo que tengas un id diferente
+  }
+
+  function increaseQuantity(id){
+    const updatedCart = cart.map(item => {
+      if(item.id === id && item.quantity < 5) {
+        return {
+          ...item, // "..." -> crear una copia superficial del array
+          quantity: item.quantity + 1
+        }
+      }
+      return item // Para que no se pierdan los otros items
+    })
+    setCart(updatedCart) // Returneamos el nuevo carrito
+  }
+
+  function decreaseQuantity(id){
+    const updateCart = cart.map(item => {
+      if(item.id === id && item.quantity > 0) {
+        return {
+          ...item,
+          quantity : item.quantity - 1
+        }
+      }
+      return item
+    })
+    setCart(updateCart)
   }
 
   return (  
@@ -41,6 +74,9 @@ function App() {
 
     <Header
       cart={cart}
+      removeFromCart={removeFromCart}
+      increaseQuantity = {increaseQuantity}
+      decreaseQuantity = {decreaseQuantity}
     />
 
     <main className="container-xl mt-5">
