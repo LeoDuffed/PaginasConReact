@@ -15,13 +15,12 @@ function App() {
   facilitando la gestión de datos que cambian durante el ciclo de 
   vida de un componente. 
   */
-
   const [data, setData] = useState(db) 
   // data = estado actual
   // setData = es un setter
   const [cart, setCart] = useState([])
 
-  function addToCart(item){
+  function addToCart(item){ // Funcion que mandamos como propt
     const itemExist = cart.findIndex((guitar) => guitar.id === item.id)
     if(itemExist >= 0){ // Si ya exsite va sumando a la cantidad
       const updateCart = [...cart]
@@ -31,6 +30,10 @@ function App() {
       item.quantity = 1
       setCart([...cart, item])
     }
+  }
+
+  function removeFromCart(item){
+    
   }
 
   return (  
