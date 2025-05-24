@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
-export default function Guitar({guitar, addToCart}){
+
+// Recibimos los propts que le mandamos
+export default function Guitar({guitar,setCart , addToCart}){
 
     const {id, name, image, description, price} = guitar
 

@@ -7,7 +7,18 @@ import { useState } from "react"
 
 function App() {
 
-  const [data, setData] = useState(db)
+  /* Documentacion useState:
+  El hook useState en React JSX permite a los componentes 
+  funcionales gestionar su estado interno, similar a como lo 
+  hacen los componentes de clase. Devuelve un array que contiene 
+  el valor actual del estado y una función para actualizarlo, 
+  facilitando la gestión de datos que cambian durante el ciclo de 
+  vida de un componente. 
+  */
+
+  const [data, setData] = useState(db) 
+  // data = estado actual
+  // setData = es un setter
   const [cart, setCart] = useState([])
 
   function addToCart(item){
@@ -36,7 +47,8 @@ function App() {
         <div className="row mt-5">
 
           {data.map ((guitar) => (
-            <Guitar // Todo lo que le estamos mandando al guitar
+            <Guitar 
+            // Todos los propts que le estamos mandando
               key={guitar.id}
               guitar={guitar}
               setCart={setCart}

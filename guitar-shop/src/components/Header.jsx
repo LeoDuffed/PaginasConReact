@@ -5,9 +5,20 @@ import Guitar from "./Guitar";
 //import React from "react"
 export default function Header({cart}){
     
+    /* State Derivado
+    En el contexto de React y JSX, "state derivado" 
+    (o "state" calculado) se refiere a un estado que se 
+    obtiene de otros estados o propiedades del componente. 
+    En lugar de almacenar directamente el valor que se va a 
+    mostrar, se calcula basado en otros valores.
+    */
+    const isEmpty = () => cart.length === 0 
+
     return(
-        //<React.Fragment>
-        //</React.Fragment>
+        /* Otra manera en vez de return():
+        inicio: <React.Fragment>
+        final: </React.Fragment>
+        */
         <header className="py-5 header">
             <div className="container-xl">
                 <div className="row justify-content-center justify-content-md-between">
@@ -23,61 +34,78 @@ export default function Header({cart}){
                             <img className="img-fluid" src="./public/img/carrito.png" alt="imagen carrito" />
 
                             <div id="carrito" className="bg-white p-3">
-                                <p className="text-center">El carrito esta vacio</p>
-                                <table className="w-100 table">
-                                    <thead>
-                                        <tr>
-                                            <th>Imagen</th>
-                                            <th>Nombre</th>
-                                            <th>Precio</th>
-                                            <th>Cantidad</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {cart.map(guitar => (
-                                        
-                                            <tr key={guitar.id}>
-                                                <td>
-                                                    <img className="img-fluid" 
-                                                    src= {`/img/${guitar.image}.jpg`}
-                                                    alt="imagen guitarra"
-                                                    />
-                                                </td>
-                                                <td>{guitar.name}</td>
-                                                <td className="fw-bold">
-                                                        ${guitar.price}
-                                                </td>
-                                                <td className="flex align-items-start gap-4">
-                                                    <button
-                                                        type="button"
-                                                        className="btn btn-dark"
-                                                    >
-                                                        -
-                                                    </button>
-                                                        {guitar.quantity}
-                                                    <button
-                                                        type="button"
-                                                        className="btn btn-dark"
-                                                    >
-                                                        +
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button
-                                                        className="btn btn-danger"
-                                                        type="button"
-                                                    >
-                                                        X
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            
-                                        ))}
-                                    </tbody>
-                                </table>
+                                
+                                {isEmpty ? ( // Es como un if y llamamos al stateDerivado 
 
-                                <p className="text-end">Total pagar: <span className="fw-bold">$899</span></p>
+                                    <p className="text-center">El carrito esta vacio</p>
+                                
+                                ) : (
+                                    <table className="w-100 table">
+                                        <thead>
+                                            <tr>
+                                                <th>Imagen</th>
+                                                <th>Nombre</th>
+                                                <th>Precio</th>
+                                                <th>Cantidad</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            {cart.map(guitar => ( 
+                                                // Estamos iterando sobre cart  con map//
+
+                                                /* Documentacion .map
+                                                In React, the .map() method is used to iterate over 
+                                                an array and transform each element into something else, 
+                                                often JSX elements, which are then rendered in the UI. 
+                                                It's a fundamental tool for dynamically rendering lists of data.
+                                                */
+
+                                                <tr key={guitar.id}>
+                                                    <td>
+                                                        <img className="img-fluid" 
+                                                        src= {`/img/${guitar.image}.jpg`}
+                                                        alt="imagen guitarra"
+                                                        />
+                                                    </td>
+                                                    <td>{guitar.name}</td>
+                                                    <td className="fw-bold">
+                                                            ${guitar.price}
+                                                    </td>
+                                                    <td className="flex align-items-start gap-4">
+                                                        <button
+                                                            type="button"
+                                                            className="btn btn-dark"
+                                                        >
+                                                            -
+                                                        </button>
+                                                            {guitar.quantity}
+                                                        <button
+                                                            type="button"
+                                                            className="btn btn-dark"
+                                                        >
+                                                            +
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <button
+                                                            className="btn btn-danger"
+                                                            type="button"
+                                                        >
+                                                            X
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                
+                                            ))}
+                                        </tbody>
+                                    </table>
+
+                                    // Fin del "if"
+                                    )} 
+
+                                <p className="text-end">Total pagar: <span className="fw-bold">$</span></p>
                                 <button className="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
                             </div>
                         </div>
