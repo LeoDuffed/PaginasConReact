@@ -60,13 +60,13 @@ function App() {
     const updateCart = cart.map(item => {
       if(item.id === id && item.quantity > 0) {
         return {
-          ...item,
+          ...item, // "..." -> crear una copia superficial del array
           quantity : item.quantity - 1
         }
       }
-      return item
+      return item // Para que no se pierdan los otros items
     })
-    setCart(updateCart)
+    setCart(updateCart) // Returneamos el nuevo carrito
   }
 
   return (  
