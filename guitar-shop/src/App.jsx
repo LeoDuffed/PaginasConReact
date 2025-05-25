@@ -44,8 +44,8 @@ function App() {
   }
 
   function increaseQuantity(id){
-    const updatedCart = cart.map(item => {
-      if(item.id === id && item.quantity < 5) {
+    const updatedCart = cart.map(item => { // Iterando con .map()
+      if(item.id === id && item.quantity < 5) { // No puede ser mayor que 5
         return {
           ...item, // "..." -> crear una copia superficial del array
           quantity: item.quantity + 1
@@ -57,8 +57,8 @@ function App() {
   }
 
   function decreaseQuantity(id){
-    const updateCart = cart.map(item => {
-      if(item.id === id && item.quantity > 1) {
+    const updateCart = cart.map(item => { // Iterando con .map()
+      if(item.id === id && item.quantity > 1) { // No puede ser menos de 1
         return {
           ...item, // "..." -> crear una copia superficial del array
           quantity : item.quantity - 1
@@ -73,6 +73,7 @@ function App() {
     <>  
 
     <Header
+      // Todos los propt's que le estamos mandoando a "Header"
       cart={cart}
       removeFromCart={removeFromCart}
       increaseQuantity = {increaseQuantity}
@@ -87,7 +88,7 @@ function App() {
 
           {data.map ((guitar) => (
             <Guitar 
-            // Todos los propts que le estamos mandando
+              // Todos los propt's que le estamos mandando a "Guitar"
               key={guitar.id}
               guitar={guitar}
               setCart={setCart}
