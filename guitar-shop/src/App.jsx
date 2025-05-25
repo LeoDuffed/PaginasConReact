@@ -58,7 +58,7 @@ function App() {
 
   function decreaseQuantity(id){
     const updateCart = cart.map(item => {
-      if(item.id === id && item.quantity > 0) {
+      if(item.id === id && item.quantity > 1) {
         return {
           ...item, // "..." -> crear una copia superficial del array
           quantity : item.quantity - 1
