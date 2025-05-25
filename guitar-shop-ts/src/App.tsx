@@ -10,6 +10,8 @@ function App() {
   // Llamando a todo lo que hay en el custom Hook
   const { data, cart, addToCart, removeFromCart, decreaseQuantity, increaseQuantity, clearCart, isEmpty, cartTotal } = useCart()
 
+  
+
   return (  
     <>  
 

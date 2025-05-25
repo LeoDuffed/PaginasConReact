@@ -1,9 +1,15 @@
 /* eslint-disable no-unused-vars */
+import type { Guitar } from '../types'
+
+type GuitarProps = {
+    guitar: Guitar,
+    addToCart : (item: Guitar) => void
+}
 
 // Recibimos los propts que le mandamos
-export default function Guitar({guitar, addToCart}){
+export default function Guitar({guitar, addToCart} : GuitarProps){
 
-    const {id, name, image, description, price} = guitar
+    const {name, image, description, price} = guitar
 
     return(
             <>
