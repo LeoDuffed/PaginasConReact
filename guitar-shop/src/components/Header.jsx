@@ -1,39 +1,10 @@
 /* eslint-disable no-unused-vars */
 
-import Guitar from "./Guitar";
-import { useMemo } from "react";
+import { useCart } from "../hooks/useCart"
 
-//import React from "react"
-export default function Header({cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart}){
-    
-    /* Documentacion useMemo:
-    useMemo is a React Hook that optimizes performance 
-    by memoizing the result of a function call. It's particularly 
-    useful for expensive computations or when rendering large lists, 
-    preventing unnecessary re-renders. It receives a function and an array 
-    of dependencies as arguments. The function is executed only when the 
-    dependencies change, otherwise, useMemo returns the cached value. 
-    */
-    const isEmpty = useMemo( () => cart.length === 0 , [cart] )
+export default function Header({cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, isEmpty, cartTotal}){
 
-    /* Documentacion State Derivado
-    En el contexto de React y JSX, "state derivado" 
-    (o "state" calculado) se refiere a un estado que se 
-    obtiene de otros estados o propiedades del componente. 
-    En lugar de almacenar directamente el valor que se va a 
-    mostrar, se calcula basado en otros valores.
-
-    // Documentacion .reduce()
-    El método .reduce() en JavaScript 
-    es una función de alto nivel que permite reducir un array 
-    a un valor único. Esto se hace iterando sobre los elementos 
-    del array y aplicando una función de devolución de llamada que 
-    combina los elementos con un acumulador
-    */
-    const cartTotal = () => cart.reduce((total, item) => total + (item.quantity * item.price), 0) // Es un state derivado
-
-
-    return(
+    return( 
         /* Otra manera en vez de return():
         inicio: <React.Fragment>
         final: </React.Fragment>
