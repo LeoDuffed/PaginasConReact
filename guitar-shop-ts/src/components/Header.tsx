@@ -1,8 +1,25 @@
 /* eslint-disable no-unused-vars */
+import type  {Guitar, CartItem} from '../types/index.ts'
 
-import { useCart } from "../hooks/useCart"
+type HeaderPorps = {    // Tipando los propt's 
+    cart : CartItem[]
+    removeFromCart : (id : Guitar['id']) => void
+    increaseQuantity : (id : Guitar['id']) => void 
+    decreaseQuantity : (id : Guitar['id']) => void 
+    clearCart : () => void
+    isEmpty : boolean
+    cartTotal : number
+}
 
-export default function Header({cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, isEmpty, cartTotal}){
+export default function Header({ // Todos los propt's
+    cart, 
+    removeFromCart, 
+    increaseQuantity, 
+    decreaseQuantity, 
+    clearCart, 
+    isEmpty, 
+    cartTotal
+    } : HeaderPorps){
 
     return( 
         /* Otra manera en vez de return():

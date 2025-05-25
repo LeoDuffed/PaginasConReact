@@ -2,10 +2,21 @@
 
 import { useState, useEffect, useMemo } from "react" // Hook's que se usaron
 import { db } from "../data/db" // Mini base de datos de las guitarras
+import type { Guitar, CartItem } from '../types/index.ts'
+
 
 export const useCart = () => {
 
+    // -------------------------------------------------------
+
         // Custom Hook 
+        /* Que es un Hook: 
+        Un hook es una función especial de React que te 
+        permite usar características de React (como el 
+        estado o el ciclo de vida) dentro de componentes funcionales.
+        */
+
+    // -------------------------------------------------------
 
         // Hook's para App.jsx
 
@@ -24,7 +35,7 @@ export const useCart = () => {
         converting data from one format (e.g., JSON, XML, HTML) 
         into a JavaScript object that can be used within React components.
         */
-        const initialCart = () => { // Inicializar el carro
+        const initialCart = () : CartItem[] => { // Inicializar el carro
             const localStorageCart = localStorage.getItem('cart')
             return localStorageCart ? JSON.parse(localStorageCart) : []
             // si tiene algo lo carga, si no inicia vacio
@@ -56,19 +67,20 @@ export const useCart = () => {
             localStorage.setItem('cart', JSON.stringify(cart)) // Linea para guardar en local storage
         }, [cart])
         
-        function addToCart(item){ // Funcion que mandamos como propt
+        function addToCart(item : Guitar){ // Funcion que mandamos como propt
             const itemExist = cart.findIndex((guitar) => guitar.id === item.id)
             if(itemExist >= 0){ // Si ya exsite va sumando a la cantidad
-            const updateCart = [...cart]
-            updateCart[itemExist].quantity++
-            setCart(updateCart)
+                if(cart[itemExist].quiantity >= 5) return 
+                const updateCart = [...cart]
+                updateCart[itemExist].quantity++
+                setCart(updateCart)
             } else{ // Si no existe la cantidad es 1.
-            item.quantity = 1
-            setCart([...cart, item])
+                const newItem : CartItem = {...item, quantity : 1} // Convertimos a otro tipo de dato
+                setCart([...cart, newItem])
             }
         }
         
-        function removeFromCart(id){
+        function removeFromCart(id : Guitar['id']){
             /* Documentacion .filter
             es un método iterativo que permite crear 
             una nueva matriz a partir de una matriz 
@@ -79,7 +91,7 @@ export const useCart = () => {
             setCart(prevCart => prevCart.filter(guitar => guitar.id !== id)) // Mantiene todos lo que tengas un id diferente
         }
         
-        function increaseQuantity(id){
+        function increaseQuantity(id : Guitar['id']){
             const updatedCart = cart.map(item => { // Iterando con .map()
             if(item.id === id && item.quantity < 5) { // No puede ser mayor que 5
                 return {
@@ -92,7 +104,7 @@ export const useCart = () => {
             setCart(updatedCart) // Returneamos el nuevo carrito
         }
         
-        function decreaseQuantity(id){
+        function decreaseQuantity(id : Guitar['id']){
             const updateCart = cart.map(item => { // Iterando con .map()
             if(item.id === id && item.quantity > 1) { // No puede ser menor que 1
                 return {
@@ -105,7 +117,7 @@ export const useCart = () => {
             setCart(updateCart) // Returneamos el nuevo carrito
         }
         
-        function clearCart(e){ // Funcion para limpiar el carrito
+        function clearCart(){ // Funcion para limpiar el carrito
             setCart([]) // Limpiamos un arreglo
         }
 

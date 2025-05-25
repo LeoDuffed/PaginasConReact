@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import type { Guitar } from '../types'
 
-type GuitarProps = {
+type GuitarProps = { // Definiendo valores solo para este componente
     guitar: Guitar,
     addToCart : (item: Guitar) => void
 }
