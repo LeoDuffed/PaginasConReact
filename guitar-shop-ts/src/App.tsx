@@ -1,33 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/* eslint-disable no-unused-vars */
+
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import Guitar from "./components/Guitar"
+import { useCart } from "./hooks/useCart"
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+  // Llamando a todo lo que hay en el custom Hook
+  const { data, cart, addToCart, removeFromCart, decreaseQuantity, increaseQuantity, clearCart, isEmpty, cartTotal } = useCart()
+
+  return (  
+    <>  
+
+    <Header
+      // Todos los propt's que le estamos mandoando a "Header"
+      cart={cart}
+      removeFromCart={removeFromCart}
+      increaseQuantity = {increaseQuantity}
+      decreaseQuantity = {decreaseQuantity}
+      clearCart={clearCart}
+      isEmpty = {isEmpty}
+      cartTotal = {cartTotal}
+    />
+
+    <main className="container-xl mt-5">
+
+        <h2 className="text-center">Nuestra Colección</h2>
+
+        <div className="row mt-5">
+
+          {data.map ((guitar) => (
+            <Guitar 
+              // Todos los propt's que le estamos mandando a "Guitar"
+              key={guitar.id}
+              guitar={guitar}
+              addToCart={addToCart}
+            /> 
+          ))}
+
+        </div>
+
+    </main>
+
+    <Footer/> 
     </>
   )
 }
