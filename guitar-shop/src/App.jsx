@@ -2,10 +2,31 @@
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Guitar from "./components/Guitar"
-import { db } from "./data/db"
-import { useState } from "react"
+import { db } from "./data/db" // Mini base de datos de las guitarras
+import { useState, useEffect } from "react" // Hook's que se usaron
 
 function App() {
+
+  /* Que hace localStorage:
+  localStorage es parte de la Web Storage API, 
+  una API nativa del navegador (no específica de React), 
+  que permite guardar datos clave-valor en el navegador de 
+  forma persistente (incluso si el usuario cierra la página).
+  
+  // Que hace .getItem:
+  El método getItem() recupera el valor asociado a una clave 
+  en el almacenamiento local del navegador (localStorage).
+
+  //Documentacion .parse
+  Parsing in React refers to the process of 
+  converting data from one format (e.g., JSON, XML, HTML) 
+  into a JavaScript object that can be used within React components.
+  */
+  const initialCart = () => { // Inicializar el carro
+    const localStorageCart = localStorage.getItem('cart')
+    return localStorageCart ? JSON.parse(localStorageCart) : []
+    // si tiene algo lo carga, si no inicia vacio
+  }
 
   /* Documentacion useState:
   El hook useState en React JSX permite a los componentes 
@@ -15,10 +36,23 @@ function App() {
   facilitando la gestión de datos que cambian durante el ciclo de 
   vida de un componente. 
   */
-  const [data, setData] = useState(db) 
-  // data = estado actual
-  // setData = es un setter
-  const [cart, setCart] = useState([])
+  const [data] = useState(db) 
+  const [cart, setCart] = useState(initialCart)
+  // cart = estado actual
+  // setCart = es un setter
+
+  /* useEffect Documentacion: 
+  The useEffect Hook in React allows functional components 
+  to perform side effects, such as data fetching, 
+  DOM manipulation, or setting up subscriptions, 
+  after rendering. It serves as a replacement for 
+  lifecycle methods found in class components, 
+  like componentDidMount, componentDidUpdate, and 
+  componentWillUnmount.
+  */
+  useEffect(() => { // call back de useEffect para cada que cambia el carrito
+    localStorage.setItem('cart', JSON.stringify(cart)) // Linea para guardar en local storage
+  }, [cart])
 
   function addToCart(item){ // Funcion que mandamos como propt
     const itemExist = cart.findIndex((guitar) => guitar.id === item.id)
@@ -58,7 +92,7 @@ function App() {
 
   function decreaseQuantity(id){
     const updateCart = cart.map(item => { // Iterando con .map()
-      if(item.id === id && item.quantity > 1) { // No puede ser menos de 1
+      if(item.id === id && item.quantity > 1) { // No puede ser menor que 1
         return {
           ...item, // "..." -> crear una copia superficial del array
           quantity : item.quantity - 1
@@ -69,6 +103,11 @@ function App() {
     setCart(updateCart) // Returneamos el nuevo carrito
   }
 
+  function clearCart(e){ // Funcion para limpiar el carrito
+    setCart([]) // Limpiamos un arreglo
+  }
+
+
   return (  
     <>  
 
@@ -78,6 +117,7 @@ function App() {
       removeFromCart={removeFromCart}
       increaseQuantity = {increaseQuantity}
       decreaseQuantity = {decreaseQuantity}
+      clearCart={clearCart}
     />
 
     <main className="container-xl mt-5">
