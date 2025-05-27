@@ -1,16 +1,24 @@
 /* eslint-disable */
 
 import { useState } from "react";
-import type { OrderItem } from "../types";
+import type { MenuItem, OrderItem } from "../types";
 
 export default function useOrder(){
 
     const [order, setOrder] = useState<OrderItem[]>([])
 
-    const addItem = () => {
+    const addItem = (item : MenuItem) => {
 
-        console.log('Agregando...')
-
+        // Para que no se repitan los productos y suba solo la cantidad
+        const itemExiste = order.find(orderItem => orderItem.id === item.id)
+        if (itemExiste) {
+            const updatedOrder = order.map(orderItem => orderItem.id === item.id ? 
+                {...orderItem, quantity : orderItem.quantity + 1} : orderItem)
+            setOrder(updatedOrder)
+        } else {
+            const newItem = {...item, quantity : 1}
+            setOrder([...order, newItem])
+        }
     }
 
     return {
