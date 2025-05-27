@@ -1,8 +1,9 @@
 /* eslint-disable */
 
 import { menuItems } from "./data/db"
-import MenuItems from "./types/MenuItem"
+import MenuItems from "./components/MenuItem"
 import useOrder from './hook/useOrder'
+import OrderContents from "./components/OrderContents"
 
 function App() {
 
@@ -35,8 +36,8 @@ function App() {
 
         </div>
 
-        <div>
-          <h2>Consumo</h2>
+        <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
+          <OrderContents/>
         </div>
 
       </main>
