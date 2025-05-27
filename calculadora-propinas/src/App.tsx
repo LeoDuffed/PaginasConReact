@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable */
 
 import { menuItems } from "./data/db"
 import MenuItems from "./types/MenuItem"

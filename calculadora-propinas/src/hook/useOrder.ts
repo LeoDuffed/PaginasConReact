@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable */
 
 import { useState } from "react";
 import type { OrderItem } from "../types";
