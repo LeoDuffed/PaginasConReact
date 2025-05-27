@@ -1,7 +1,12 @@
+/* eslint-disable no-unused-vars */
+
 import { menuItems } from "./data/db"
 import MenuItems from "./types/MenuItem"
+import useOrder from './hook/useOrder'
 
 function App() {
+
+  const {addItem} = useOrder()
 
   return (
     <>
@@ -23,6 +28,7 @@ function App() {
                 <MenuItems
                   key={item.id}
                   item={item}
+                  addItem={addItem} 
                 />
               ))}
             </div>
