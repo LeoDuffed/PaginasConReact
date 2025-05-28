@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { menuItems } from "./data/db"
 import MenuItems from "./components/MenuItem"
 import useOrder from './hook/useOrder'
