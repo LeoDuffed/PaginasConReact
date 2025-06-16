@@ -1,12 +1,15 @@
+/* eslint-disable */
+
 import { menuItems } from "./data/db"
 import MenuItems from "./components/MenuItem"
 import useOrder from './hook/useOrder'
 import OrderContents from "./components/OrderContents"
 import OrderTotals from "./components/OrderTotals"
+import TipPercentageForm from "./components/TipPercentageTorm"
 
 function App() {
 
-  const {order, addItem, removeitem} = useOrder()
+  const {order, addItem, removeitem, tip, setTip} = useOrder()
 
   return (
     <>
@@ -35,12 +38,18 @@ function App() {
 
         <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
           <OrderContents
-            order = {order}
-            removeItem = {removeitem}
+            order={order}
+            removeItem={removeitem}
+          />
+          
+          <TipPercentageForm
+            setTip={setTip}
           />
 
-          <OrderTotals/>
-          
+          <OrderTotals
+            order={order}
+          />
+
         </div>
 
       </main>
