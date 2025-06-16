@@ -21,8 +21,14 @@ export default function useOrder(){
         }
     }
 
+    // Funcino para poder elminar comida de la ordern 
+    const removeitem = (id: MenuItem['id']) => {
+        setOrder(order.filter(item => item.id ! == id))
+    }
+
     return {
         order,
-        addItem
+        addItem, 
+        removeitem
     }
 }
