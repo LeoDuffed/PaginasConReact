@@ -9,7 +9,7 @@ import TipPercentageForm from "./components/TipPercentageTorm"
 
 function App() {
 
-  const {order, addItem, removeitem, tip, setTip} = useOrder()
+  const {order, addItem, removeitem, tip, setTip, placeOrder} = useOrder()
 
   return (
     <>
@@ -37,24 +37,30 @@ function App() {
         </div>
 
         <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
-          <OrderContents
-            order={order}
-            removeItem={removeitem}
-          />
-          
-          <TipPercentageForm
-            setTip={setTip}
-          />
+          {order.length > 0 ?(
 
-          <OrderTotals
-            order={order}
-            tip={tip}
-          />
+            <>
+              <OrderContents
+                order={order}
+                removeItem={removeitem}
+              />
+              
+              <TipPercentageForm
+                setTip={setTip}
+                tip={tip}
+              />
 
+              <OrderTotals
+                order={order}
+                tip={tip}
+                placeOrder={placeOrder}
+              />
+            </>
+          ): (
+            <p className="font-black text-3xl">La orden esta vacia</p>
+          )}
         </div>
-
       </main>
-
     </> 
   )
 }
