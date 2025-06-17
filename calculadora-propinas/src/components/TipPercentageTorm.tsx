@@ -3,7 +3,7 @@ import type { Dispatch, SetStateAction } from "react"
 const tipOptions = [
     {
         id: 'tip-5', 
-        value: .5, 
+        value: .05, 
         label: '5%'
     },
     {
