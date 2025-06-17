@@ -1,15 +1,22 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState, type ChangeEvent, type FormEvent } from "react"
+import { useState, type ChangeEvent, type Dispatch, type FormEvent } from "react"
 import { categories } from "../data/categories"
 import type { Activity } from "../types"
+import type { ActivityActions } from "../reducers/activity-reducer"
 
-export default function Form() {
+type FormProps = {
+    dispatch: Dispatch<ActivityActions>
+}
 
-    const [activity, setActivity] = useState<Activity>({
-        category: 1, 
-        name:'',
-        calories: 0
-    })
+const initialState = {
+    category: 1, 
+    name:'',
+    calories: 0
+}
+
+export default function Form({dispatch} : FormProps) {
+
+    const [activity, setActivity] = useState<Activity>(initialState)
 
     const handleChange = (e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>) => {
         
@@ -18,7 +25,6 @@ export default function Form() {
             ...activity,
             [e.target.id]: isNumbewField ? +e.target.value : e.target.value
         })
-        
     }
 
     const isValidActivity = () => {
@@ -29,7 +35,9 @@ export default function Form() {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
+        dispatch({type: 'save-activity', payload: {newActivity: activity}})
 
+        setActivity( initialState )
     }
 
   return (
