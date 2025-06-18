@@ -16,9 +16,15 @@ export type CartState = {
     cart: CartItem[]
 }
 
+const initialCart = () : CartItem[] => { // Inicializar el carro
+    const localStorageCart = localStorage.getItem('cart')
+    return localStorageCart ? JSON.parse(localStorageCart) : []
+    // si tiene algo lo carga, si no inicia vacio
+}
+
 export const initialState: CartState = {
     data: db,
-    cart: []
+    cart: initialCart()
 }
 
 const MIN_ITEMS = 1
@@ -105,7 +111,8 @@ export const cartReducer = (
 
     if(action.type === 'clear-cart'){
         return{
-            ...state
+            ...state, 
+            cart: []
         }
     }
 

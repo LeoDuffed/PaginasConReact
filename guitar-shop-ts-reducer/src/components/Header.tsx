@@ -1,19 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 import type { CartActrions } from '../reducers/cart-reducer'
-import type  {Guitar, CartItem} from '../types/index'
+import type  { CartItem} from '../types/index'
 import { useMemo, type Dispatch } from 'react'
 
 type HeaderPorps = {    // Tipando los propt's 
     cart : CartItem[]
     dispatch: Dispatch<CartActrions>
-    clearCart : () => void
 }
 
 export default function Header({ // Todos los propt's
     cart, 
     dispatch, 
-    clearCart, 
     } : HeaderPorps){
 
     /*
@@ -147,7 +145,7 @@ export default function Header({ // Todos los propt's
                                 
                                 <button 
                                 className="btn btn-dark w-100 mt-3 p-2" 
-                                onClick={clearCart}
+                                onClick={() => dispatch({type: 'clear-cart'})}
                                 >
                                     Vaciar Carrito
                                 </button>
