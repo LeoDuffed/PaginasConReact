@@ -21,6 +21,9 @@ export const initialState: CartState = {
     cart: []
 }
 
+const MIN_ITEMS = 1
+const MAX_ITEMS = 5
+
 export const cartReducer = (
         state : CartState = initialState,
         action: CartActrions
@@ -34,7 +37,7 @@ export const cartReducer = (
         if(itemExist){ // Si ya exsite va sumando a la cantidad
             updatedCart = state.cart.map(item => {
                 if(item.id === action.payload.item.id){
-                    if(item.quantity < 5){
+                    if(item.quantity < MAX_ITEMS){
                         return{...item, quantity: item.quantity + 1}
                     } else{
                         return item
@@ -54,8 +57,17 @@ export const cartReducer = (
     }
 
     if(action.type === 'remove-from-cart'){
+        /* Documentacion .filter
+            es un método iterativo que permite crear 
+            una nueva matriz a partir de una matriz 
+            existente, seleccionando únicamente los 
+            elementos que cumplen una condición específica 
+            definida por una función de callback. 
+        */
+        const updateCart = state.cart.filter(iten => iten.id !== action.payload.id)
         return{
-            ...state
+            ...state,
+            cart: updateCart
         }
     }
 

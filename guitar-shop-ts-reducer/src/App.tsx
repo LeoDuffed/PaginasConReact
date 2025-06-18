@@ -10,7 +10,7 @@ import { cartReducer, initialState } from "./reducers/cart-reducer"
 function App() {
 
   // Llamando a todo lo que hay en el custom Hook
-  const { cart, removeFromCart, decreaseQuantity, increaseQuantity, clearCart, isEmpty, cartTotal } = useCart()
+  const { removeFromCart, decreaseQuantity, increaseQuantity, clearCart } = useCart()
 
   const [state, dispatch] = useReducer(cartReducer, initialState)
 
@@ -19,13 +19,11 @@ function App() {
 
     <Header
       // Todos los propt's que le estamos mandoando a "Header"
-      cart={cart}
+      cart={state.cart}
       removeFromCart={removeFromCart}
       increaseQuantity = {increaseQuantity}
       decreaseQuantity = {decreaseQuantity}
       clearCart={clearCart}
-      isEmpty = {isEmpty}
-      cartTotal = {cartTotal()}
     />
 
     <main className="container-xl mt-5">
