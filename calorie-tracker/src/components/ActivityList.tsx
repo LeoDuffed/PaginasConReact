@@ -14,11 +14,13 @@ type ActivitiesListProps = {
 export default function ActivityList({activities, dispatch}: ActivitiesListProps) {
 
     const categoryName = useMemo(() => (category: Activity['category']) => categories.map(cat => cat.id === category ? cat.name : ''), [activities])
+
     return (
         <>
 
             <h2 className="text-4xl font-bold text-slate-600 text-center">Comida y Actividades</h2>
-            {activities.map(activity => (
+            {activities.length === 0 ? <p className="text-center text-2xl text-black py-3">No hay actividades aun...</p> :
+            activities.map(activity => (
                 <div
                     key={activity.id}
                     className="px-5 py-10 bg-white mt-5 flex justify-between"

@@ -41,9 +41,14 @@ export type ActivitySatate = {
     activeId: Activity['id']
 }
 
-// Estado inicial: sin actividades y sin actividad activa
+const localStorageACtivities = () : Activity[] => {
+    const activities = localStorage.getItem('activities')
+    return activities ? JSON.parse(activities) : []
+}
+
+// Estado inicial
 export const initialState : ActivitySatate = {
-    activities: [], 
+    activities: localStorageACtivities(), 
     activeId: ''
 }
 
