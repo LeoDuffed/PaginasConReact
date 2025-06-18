@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import type  {Guitar, CartItem} from '../types/index.ts'
+import type  {Guitar, CartItem} from '../types/index'
 
 type HeaderPorps = {    // Tipando los propt's 
     cart : CartItem[]
@@ -8,7 +8,7 @@ type HeaderPorps = {    // Tipando los propt's
     decreaseQuantity : (id : Guitar['id']) => void 
     clearCart : () => void
     isEmpty : boolean
-    cartTotal : number
+    cartTotal: number
 }
 
 export default function Header({ // Todos los propt's
@@ -92,7 +92,7 @@ export default function Header({ // Todos los propt's
                                                             >
                                                                 -
                                                             </button>
-                                                                {guitar.quantity}
+                                                                {guitar.quiantity}
                                                             <button
                                                                 type="button"
                                                                 className="btn btn-dark"
@@ -117,7 +117,7 @@ export default function Header({ // Todos los propt's
                                         </table>
 
                                     <p className="text-end">Total pagar: 
-                                        <span className="fw-bold">${cartTotal()}</span>
+                                        <span className="fw-bold">${cartTotal}</span>
                                     </p>
 
                                 </>

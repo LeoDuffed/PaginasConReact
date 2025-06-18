@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react" // Hook's que se usaron
 import { db } from "../data/db" // Mini base de datos de las guitarras
-import type { Guitar, CartItem } from '../types/index.ts'
+import type { Guitar, CartItem } from '../index.ts'
 
 
 export const useCart = () => {
