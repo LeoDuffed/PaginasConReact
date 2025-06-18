@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import type { CartItem } from "..";
+import type { CartItem } from "../types/index";
 import type { Guitar } from "../types";
 import { db } from "../data/db"
 
@@ -27,8 +27,29 @@ export const cartReducer = (
     ) => {
     
     if(action.type === 'add-to-cart'){
+        const itemExist = state.cart.find((guitar) => guitar.id === action.payload.item.id)
+
+        let updatedCart : CartItem[] = []
+
+        if(itemExist){ // Si ya exsite va sumando a la cantidad
+            updatedCart = state.cart.map(item => {
+                if(item.id === action.payload.item.id){
+                    if(item.quantity < 5){
+                        return{...item, quantity: item.quantity + 1}
+                    } else{
+                        return item
+                    }
+                } else{
+                    return item
+                }
+            })
+        } else{ // Si no existe la cantidad es 1.
+            const newItem : CartItem = {...action.payload.item, quantity : 1} // Convertimos a otro tipo de dato
+            updatedCart = [...state.cart, newItem]
+        }
         return{
-            ...state
+            ...state, 
+            cart: updatedCart
         }
     }
 

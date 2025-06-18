@@ -10,7 +10,7 @@ import { cartReducer, initialState } from "./reducers/cart-reducer"
 function App() {
 
   // Llamando a todo lo que hay en el custom Hook
-  const { data, cart, addToCart, removeFromCart, decreaseQuantity, increaseQuantity, clearCart, isEmpty, cartTotal } = useCart()
+  const { cart, removeFromCart, decreaseQuantity, increaseQuantity, clearCart, isEmpty, cartTotal } = useCart()
 
   const [state, dispatch] = useReducer(cartReducer, initialState)
 
@@ -34,12 +34,12 @@ function App() {
 
         <div className="row mt-5">
 
-          {data.map ((guitar) => (
+          {state.data.map ((guitar) => (
             <Guitar 
               // Todos los propt's que le estamos mandando a "Guitar"
               key={guitar.id}
               guitar={guitar}
-              addToCart={addToCart}
+              dispatch={dispatch}
             /> 
           ))}
 

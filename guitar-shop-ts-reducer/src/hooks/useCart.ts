@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 
 import { useState, useEffect, useMemo } from "react" // Hook's que se usaron
@@ -49,9 +50,8 @@ export const useCart = () => {
         facilitando la gestión de datos que cambian durante el ciclo de 
         vida de un componente. 
         */
-        const [data] = useState(db) 
+
         const [cart, setCart] = useState(initialCart)
-        // cart = estado actual
         // setCart = es un setter
         
         /* useEffect Documentacion: 
@@ -66,19 +66,7 @@ export const useCart = () => {
         useEffect(() => { // call back de useEffect para cada que cambia el carrito
             localStorage.setItem('cart', JSON.stringify(cart)) // Linea para guardar en local storage
         }, [cart])
-        
-        function addToCart(item : Guitar){ // Funcion que mandamos como propt
-            const itemExist = cart.findIndex((guitar) => guitar.id === item.id)
-            if(itemExist >= 0){ // Si ya exsite va sumando a la cantidad
-                if(cart[itemExist].quantity >= 5) return 
-                const updateCart = [...cart]
-                updateCart[itemExist].quantity++
-                setCart(updateCart)
-            } else{ // Si no existe la cantidad es 1.
-                const newItem : CartItem = {...item, quantity : 1} // Convertimos a otro tipo de dato
-                setCart([...cart, newItem])
-            }
-        }
+
         
         function removeFromCart(id : Guitar['id']){
             /* Documentacion .filter
@@ -150,10 +138,8 @@ export const useCart = () => {
         */
         const cartTotal = () => cart.reduce((total, item) => total + (item.quantity * item.price), 0) // Es un state derivado
 
-        return {
-            data, 
-            cart,
-            addToCart, 
+        return { 
+            cart, 
             removeFromCart, 
             decreaseQuantity, 
             increaseQuantity, 
