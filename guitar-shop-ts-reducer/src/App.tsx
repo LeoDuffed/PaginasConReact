@@ -1,16 +1,18 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
+import { useReducer } from "react"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Guitar from "./components/Guitar"
 import { useCart } from "./hooks/useCart"
+import { cartReducer, initialState } from "./reducers/cart-reducer"
 
 function App() {
 
   // Llamando a todo lo que hay en el custom Hook
   const { data, cart, addToCart, removeFromCart, decreaseQuantity, increaseQuantity, clearCart, isEmpty, cartTotal } = useCart()
 
-  
+  const [state, dispatch] = useReducer(cartReducer, initialState)
 
   return (  
     <>  

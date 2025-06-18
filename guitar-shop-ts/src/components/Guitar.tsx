@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import type { Guitar } from '..'
+import type { Guitar } from '../types/index'
 
 type GuitarProps = { // Definiendo valores solo para este componente
     guitar: Guitar,

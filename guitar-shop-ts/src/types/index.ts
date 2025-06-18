@@ -9,5 +9,5 @@ export type Guitar = {
 } 
 
 export type CartItem = Guitar &{
-    quiantity : number;
+    quantity : number;
 } 
