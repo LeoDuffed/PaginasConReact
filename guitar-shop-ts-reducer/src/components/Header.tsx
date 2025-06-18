@@ -1,20 +1,18 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
+import type { CartActrions } from '../reducers/cart-reducer'
 import type  {Guitar, CartItem} from '../types/index'
-import { useMemo } from 'react'
+import { useMemo, type Dispatch } from 'react'
 
 type HeaderPorps = {    // Tipando los propt's 
     cart : CartItem[]
-    removeFromCart : (id : Guitar['id']) => void
-    increaseQuantity : (id : Guitar['id']) => void 
-    decreaseQuantity : (id : Guitar['id']) => void 
+    dispatch: Dispatch<CartActrions>
     clearCart : () => void
 }
 
 export default function Header({ // Todos los propt's
     cart, 
-    removeFromCart, 
-    increaseQuantity, 
-    decreaseQuantity, 
+    dispatch, 
     clearCart, 
     } : HeaderPorps){
 
@@ -111,7 +109,7 @@ export default function Header({ // Todos los propt's
                                                             <button
                                                                 type="button"
                                                                 className="btn btn-dark"
-                                                                onClick={() => decreaseQuantity(guitar.id)} // Call back
+                                                                onClick={() => dispatch({type : 'decrease-quantity', payload: {id: guitar.id}})} 
                                                             >
                                                                 -
                                                             </button>
@@ -119,7 +117,7 @@ export default function Header({ // Todos los propt's
                                                             <button
                                                                 type="button"
                                                                 className="btn btn-dark"
-                                                                onClick={() => increaseQuantity(guitar.id)} // Call back
+                                                                onClick={() => dispatch({type: 'increase-quantity', payload: {id: guitar.id}})} 
                                                             >
                                                                 +
                                                             </button>
@@ -128,7 +126,7 @@ export default function Header({ // Todos los propt's
                                                             <button
                                                                 className="btn btn-danger"
                                                                 type="button"
-                                                                onClick={() => removeFromCart(guitar.id)} // Call back
+                                                                onClick={() => dispatch({type: 'remove-from-cart', payload: {id: guitar.id}})} 
                                                             >
                                                                 X
                                                             </button>

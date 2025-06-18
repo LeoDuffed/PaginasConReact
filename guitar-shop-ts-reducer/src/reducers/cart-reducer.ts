@@ -72,14 +72,34 @@ export const cartReducer = (
     }
 
     if(action.type === 'decrease-quantity'){
+        const cart = state.cart.map(item => {
+            if(item.id === action.payload.id && item.quantity > MIN_ITEMS){
+                return{
+                    ...item,
+                    quantity: item.quantity - 1
+                }
+            }
+            return item
+        })
         return{
-            ...state
+            ...state, 
+            cart
         }
     }
 
     if(action.type === 'increase-quantity'){
+        const cart = state.cart.map(item => { // Iterando con .map()
+            if(item.id === action.payload.id && item.quantity < MAX_ITEMS) { // No puede ser mayor que 5
+                return {
+                    ...item, // "..." -> crear una copia superficial del array
+                    quantity: item.quantity + 1
+                }
+            }
+            return item // Para que no se pierdan los otros items
+        })
         return{
-            ...state
+            ...state, 
+            cart
         }
     }
 

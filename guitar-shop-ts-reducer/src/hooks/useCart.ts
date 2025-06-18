@@ -66,44 +66,7 @@ export const useCart = () => {
         useEffect(() => { // call back de useEffect para cada que cambia el carrito
             localStorage.setItem('cart', JSON.stringify(cart)) // Linea para guardar en local storage
         }, [cart])
-
         
-        function removeFromCart(id : Guitar['id']){
-            /* Documentacion .filter
-            es un método iterativo que permite crear 
-            una nueva matriz a partir de una matriz 
-            existente, seleccionando únicamente los 
-            elementos que cumplen una condición específica 
-            definida por una función de callback. 
-            */
-            setCart(prevCart => prevCart.filter(guitar => guitar.id !== id)) // Mantiene todos lo que tengas un id diferente
-        }
-        
-        function increaseQuantity(id : Guitar['id']){
-            const updatedCart = cart.map(item => { // Iterando con .map()
-            if(item.id === id && item.quantity < 5) { // No puede ser mayor que 5
-                return {
-                ...item, // "..." -> crear una copia superficial del array
-                quantity: item.quantity + 1
-                }
-            }
-            return item // Para que no se pierdan los otros items
-            })
-            setCart(updatedCart) // Returneamos el nuevo carrito
-        }
-        
-        function decreaseQuantity(id : Guitar['id']){
-            const updateCart = cart.map(item => { // Iterando con .map()
-            if(item.id === id && item.quantity > 1) { // No puede ser menor que 1
-                return {
-                ...item, // "..." -> crear una copia superficial del array
-                quantity : item.quantity - 1
-                }
-            }
-            return item // Para que no se pierdan los otros items
-            })
-            setCart(updateCart) // Returneamos el nuevo carrito
-        }
         
         function clearCart(){ // Funcion para limpiar el carrito
             setCart([]) // Limpiamos un arreglo
@@ -114,9 +77,6 @@ export const useCart = () => {
 
         return { 
             cart, 
-            removeFromCart, 
-            decreaseQuantity, 
-            increaseQuantity, 
             clearCart
         }
 
