@@ -70,12 +70,12 @@ export const useCart = () => {
         function addToCart(item : Guitar){ // Funcion que mandamos como propt
             const itemExist = cart.findIndex((guitar) => guitar.id === item.id)
             if(itemExist >= 0){ // Si ya exsite va sumando a la cantidad
-                if(cart[itemExist].quiantity >= 5) return 
+                if(cart[itemExist].quantity >= 5) return 
                 const updateCart = [...cart]
-                updateCart[itemExist].quiantity++
+                updateCart[itemExist].quantity++
                 setCart(updateCart)
             } else{ // Si no existe la cantidad es 1.
-                const newItem : CartItem = {...item, quiantity : 1} // Convertimos a otro tipo de dato
+                const newItem : CartItem = {...item, quantity : 1} // Convertimos a otro tipo de dato
                 setCart([...cart, newItem])
             }
         }
@@ -93,10 +93,10 @@ export const useCart = () => {
         
         function increaseQuantity(id : Guitar['id']){
             const updatedCart = cart.map(item => { // Iterando con .map()
-            if(item.id === id && item.quiantity < 5) { // No puede ser mayor que 5
+            if(item.id === id && item.quantity < 5) { // No puede ser mayor que 5
                 return {
                 ...item, // "..." -> crear una copia superficial del array
-                quantity: item.quiantity + 1
+                quantity: item.quantity + 1
                 }
             }
             return item // Para que no se pierdan los otros items
@@ -106,10 +106,10 @@ export const useCart = () => {
         
         function decreaseQuantity(id : Guitar['id']){
             const updateCart = cart.map(item => { // Iterando con .map()
-            if(item.id === id && item.quiantity > 1) { // No puede ser menor que 1
+            if(item.id === id && item.quantity > 1) { // No puede ser menor que 1
                 return {
                 ...item, // "..." -> crear una copia superficial del array
-                quantity : item.quiantity - 1
+                quantity : item.quantity - 1
                 }
             }
             return item // Para que no se pierdan los otros items
@@ -148,7 +148,7 @@ export const useCart = () => {
         del array y aplicando una función de devolución de llamada que 
         combina los elementos con un acumulador
         */
-        const cartTotal = () => cart.reduce((total, item) => total + (item.quiantity * item.price), 0) // Es un state derivado
+        const cartTotal = () => cart.reduce((total, item) => total + (item.quantity * item.price), 0) // Es un state derivado
 
         return {
             data, 

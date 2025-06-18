@@ -25,7 +25,7 @@ function App() {
       decreaseQuantity = {decreaseQuantity}
       clearCart={clearCart}
       isEmpty = {isEmpty}
-      cartTotal = {cartTotal}
+      cartTotal = {cartTotal()}
     />
 
     <main className="container-xl mt-5">

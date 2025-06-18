@@ -92,7 +92,7 @@ export default function Header({ // Todos los propt's
                                                             >
                                                                 -
                                                             </button>
-                                                                {guitar.quiantity}
+                                                                {guitar.quantity}
                                                             <button
                                                                 type="button"
                                                                 className="btn btn-dark"
