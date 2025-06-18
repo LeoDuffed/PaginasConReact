@@ -76,6 +76,13 @@ export const activityReducer = (state: ActivitySatate = initialState, action: Ac
         }
     }
 
+    if(action.type === 'delete-activity'){
+        return{
+            ...state, 
+            activities: state.activities.filter( activity => activity.id !== action.payload.id)
+        }
+    }
+
     // Si la acción no coincide, se devuelve el estado sin cambios
     return state
 }

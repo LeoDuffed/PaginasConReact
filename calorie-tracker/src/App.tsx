@@ -6,7 +6,8 @@ import { useReducer } from "react"
 import { activityReducer, initialState } from "./reducers/activity-reducer"
 
 function App() {
-
+  
+  // Hook useReducer para manejar el estado global del componente.
   const [state, dispatch] = useReducer(activityReducer, initialState)
 
   return (
