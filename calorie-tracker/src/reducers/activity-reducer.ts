@@ -32,7 +32,8 @@ import type {Activity} from "../types"
 export type ActivityActions = 
     {type: 'save-activity', payload: {newActivity : Activity}} | 
     {type: 'save-activeId', payload: {id : Activity['id']}} |
-    {type: 'delete-activity', payload: {id : Activity['id']}} 
+    {type: 'delete-activity', payload: {id : Activity['id']}} |
+    {type: 'restar-app'} 
     
 
 // Define la estructura del estado que maneja el reducer
@@ -85,6 +86,13 @@ export const activityReducer = (state: ActivitySatate = initialState, action: Ac
         return{
             ...state, 
             activities: state.activities.filter( activity => activity.id !== action.payload.id)
+        }
+    }
+
+    if(action.type === 'restar-app'){
+        return{
+            activities: [], 
+            activeId: ''
         }
     }
 
