@@ -4,6 +4,7 @@ import Form from "./components/Form"
 import ActivityList from "./components/ActivityList"
 import { useReducer, useEffect, useMemo } from "react"
 import { activityReducer, initialState } from "./reducers/activity-reducer"
+import CalorieTracker from "./components/CalorieTracker"
 
 function App() {
   
@@ -20,7 +21,7 @@ function App() {
   return (
     <>
       <header className="bg-gray-600 py-5 ">
-        <div className="max-w-4xl mx-auto flex justify-between">
+        <div className="max-w-4xl mx-auto flex justify-between items-center">
 
           <h1 className="text-center font-bold text-white uppercase text-4xl">
             Contador de Calorias
@@ -42,6 +43,14 @@ function App() {
           <Form
             dispatch={dispatch}  
             state={state}
+          />
+        </div>
+      </section>
+      
+      <section className="bg-gray-800 py-10">
+        <div className="max-w-4xl mx-auto">
+          <CalorieTracker
+            activities={state.activities}
           />
         </div>
       </section>
