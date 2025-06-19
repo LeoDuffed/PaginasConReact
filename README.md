@@ -62,7 +62,7 @@ Cada subcarpeta funciona de manera independiente. Para correr cualquiera de ello
 
 ## 👨‍💻 Autor
 
-**Leonardo** — Proyecto personal para documentar y practicar conocimientos de desarrollo frontend.  
+**Leonardo** — Proyecto personal para documentar y practicar conocimientos de desarrollo fullstack.  
 *Hecho con mucho entusiasmo y café ☕.*
 
 ---
