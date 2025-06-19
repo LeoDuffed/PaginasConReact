@@ -54,7 +54,6 @@ Cada subcarpeta funciona de manera independiente. Para correr cualquiera de ello
 - Consolidar habilidades prácticas en React y TypeScript.
 - Adoptar metodologías de diseño limpio con Tailwind.
 - Explorar buenas prácticas de desarrollo fullstack.
-- Desarrollar una base sólida para construir aplicaciones escalables en el futuro.
 - Aprender a crear APIs RESTful y trabajar con bases de datos.
 - Desarrollar habilidades en backend con Node.js y otras tecnologías.
 - Transitar hacia el desarrollo fullstack con una comprensión integral del ciclo completo de aplicaciones web.
