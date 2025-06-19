@@ -1,31 +1,29 @@
-# ⚛️ Carpeta de Aprendizaje React, JS, TS y Tailwind
+# Páginas con React
 
-Esta carpeta contiene una colección de mini proyectos y experimentos creados durante mi proceso de aprendizaje de **React.js**, **JavaScript moderno**, **TypeScript**, **CSS modular**, **Tailwind CSS** y la creación de **Custom Hooks**.
-
-Cada subcarpeta o archivo representa una etapa diferente en mi progreso como desarrollador fullstack, desde los fundamentos de componentes en React hasta la implementación de Hooks personalizados y estilos con Tailwind.
+Esta carpeta reúne varios mini proyectos construidos durante mi aprendizaje de **React.js**, **TypeScript** y **Tailwind CSS**. Cada directorio es una aplicación independiente que puede ejecutarse por separado.
 
 ---
 
-## 🚀 Tecnologías Principales Usadas
+## 🚀 Tecnologías Principales 
 
 - **React.js**: Biblioteca para construir interfaces de usuario.
-- **JavaScript (ES6+)**: Uso de funciones flecha, destructuring, spread/rest, async/await.
-- **TypeScript**: Añadiendo tipado estático a componentes React.
-- **CSS y SCSS**: Para maquetación de estilos en versiones anteriores.
-- **Tailwind CSS**: Framework de utilidades para estilizado rápido y responsivo.
-- **Custom Hooks**: Reutilización de lógica en React de forma elegante y escalable.
+- **JavaScript (ES6+)**: Uso de funciones flecha, destructuring, spread/rest y async/await.
+- **TypeScript**: Añade tipado estático a los componentes.
+- **Tailwind CSS**: Framework de utilidades para un estilizado rápido y responsivo.
+- **Custom Hooks**: Reutilización de lógica en React de forma escalable.
 
 ---
 
-## 📂 Estructura General del Proyecto
+## 📂 Proyectos actuales
 
-- `01-componentes-basicos/`: Uso de props, state y eventos.
-- `02-useEffect-y-useState/`: Aplicación de hooks principales.
-- `03-hooks-personalizados/`: Implementación de lógica compartida en custom hooks.
-- `04-ts-react/`: Combinación de React con TypeScript.
-- `05-tailwind-project/`: Maquetación de páginas con Tailwind.
+- `calculadora-propinas/`: Calculadora de propinas con manejo de pedidos.
+- `calculadora-propinas-reducer/`: Variante de la calculadora utilizando `useReducer`.
+- `calorie-tracker/`: Registro de actividades y calorías diarias.
+- `control-gastos/`: Planificador para llevar el control de gastos personales.
+- `guitar-shop/`: Tienda de guitarras con carrito de compras en React.
+- `guitar-shop-ts/`: Versión de la tienda usando TypeScript.
+- `guitar-shop-ts-reducer/`: Implementación en TypeScript utilizando un reducer global.
 
-> **Nota**: La carpeta `PrimeraPaginaWeb/` (si también está aquí) pertenece a otro proyecto de páginas web estáticas con HTML/CSS/JS y no se incluye en este README.
 
 ---
 
@@ -59,11 +57,12 @@ npm start
 
 - Consolidar habilidades prácticas en React y TypeScript.
 - Adoptar metodologías de diseño limpio con Tailwind.
-- Explorar buenas prácticas de desarrollo frontend.
+- Explorar buenas prácticas de desarrollo fullstack.
 - Desarrollar una base sólida para construir aplicaciones escalables en el futuro.
 - Aprender a crear APIs RESTful y trabajar con bases de datos.
 - Desarrollar habilidades en backend con Node.js y otras tecnologías.
 - Transitar hacia el desarrollo fullstack con una comprensión integral del ciclo completo de aplicaciones web.
+- Desarrollar una base sólida para construir aplicaciones escalables.
 
 ## 👨‍💻 Autor
 
