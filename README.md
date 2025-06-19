@@ -31,25 +31,21 @@ Esta carpeta reúne varios mini proyectos construidos durante mi aprendizaje de 
 
 Cada subcarpeta funciona de manera independiente. Para correr cualquiera de ellos:
 
-1. Abre la terminal y ve a la carpeta del proyecto:
-
-```bash
-cd nombre-del-proyecto
-```
+1. Abre la terminal y entra en la carpeta del proyecto:
+   ```bash
+   cd nombre-del-proyecto
+   ```
 
 2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+3. Inicia el servidor de desarrollo:
+   ```bash
+   npm start
+   ```
+   O, según la configuración, usa `npm run dev`.
 
-```bash
-npm install
-```
-
-3. Corre el servidor local:
-
-```bash
-npm start
-```
-
-> Si el proyecto está hecho en TypeScript, asegúrate de tener `typescript` instalado globalmente o usar `npx`.
 
 ---
 
